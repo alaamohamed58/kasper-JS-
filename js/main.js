@@ -196,7 +196,10 @@ let values = [
        } )
    }else{
   return false }  ;
-  
+
+  //design
+
+
 };
 topBtn.onclick = function(){
     window.scrollTo({
@@ -205,7 +208,29 @@ topBtn.onclick = function(){
     });
 };
 
+//portfolio
+let imgPortfolio = Array.from(document.querySelectorAll('.portfolio img'));
+let imgModal = document.querySelector('.portfolio .modal');
+let imgContent = document.querySelector('.portfolio .modal img');
+console.log(imgPortfolio);
+
+imgPortfolio.forEach((img) => {
+    img.onclick = function(){
+        imgModal.style.display = "flex";
+        imgModal.style.justifyContent = "center";
+        imgModal.style.alignItems = "center";
+        imgContent.src = this.src ;
+    }
+});
+let close = document.querySelector('.portfolio .modal span');
+
+close.onclick = function(){
+    imgModal.style.display = "none";
+}
+let designText = document.querySelector('.design .texts');
+let designSec = document.querySelector('.design');
 
 
-
-
+if(window.scrollTo(1050, 0)){
+  designText.classList.add('anim')
+}

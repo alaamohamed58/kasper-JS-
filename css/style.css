@@ -14,6 +14,7 @@
     -moz-box-sizing: border-box;
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 body{
     font-family: 'Open Sans', sans-serif;
@@ -23,15 +24,28 @@ body{
     bottom: 30px;
     right: -100px;
     border-radius: 10px;
-    background-color: var(--main-color);
+    background-color: red;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     z-index: 9999;
     text-align: center;
     line-height: 30px;
     user-select: none;
     cursor: pointer;
     transition: 0.3s;
+}
+.go-up i{
+    display: block;
+    font-size: 25px;
+    animation: up-down 2s linear infinite;
+}
+@keyframes up-down{
+    50%{
+        transform: translateY(50%);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
 .go-up.show{
     right: 30px;
@@ -341,9 +355,12 @@ header .container nav .form input:focus{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-  
     font-size: 35px;
     color: #fff;
+    transition: all .3s;
+}
+.landing .ray:hover{
+    color: red;
 }
 
 .landing .fa-angle-right{
@@ -453,7 +470,6 @@ font-size: 13px;
     background-color: rgb(0 0 0 /60%);
     width: 100%;
     height: 100%;
-
 }
 .design .texts{
   width:530px;
@@ -461,6 +477,10 @@ font-size: 13px;
   z-index: 2;
   padding: 60px;
   color: #fff;
+  transition: 1s;
+}
+.design .texts.anim{
+   display: none;
 }
 .design .texts h3{
 font-weight: normal;
@@ -499,9 +519,10 @@ margin-bottom: 30px;
     text-transform: uppercase;
     font-size: 12px;
     cursor: pointer;
+    user-select: none;
 }
 .portfolio ul li.active{
-    background-color:var(--main-color)
+    background-color:var(--main-color);
 }
 .portfolio ul li a:hover{
     background-color: var(--main-color);
@@ -515,11 +536,12 @@ margin-bottom: 30px;
 .portfolio .images-container .img-box{
    position: relative;
    overflow: hidden;
-   animation: pop 1s forwards;
 }
 .portfolio .images-container .img-box img{
     width:100%;
     height:100%;
+    animation: pop 1s forwards;
+
 }
 @keyframes pop {
     from{
@@ -556,7 +578,6 @@ margin-bottom: 30px;
 }
 .images-container .img-box:hover .caption{
     bottom: 0;
-
 }
 .portfolio .images-container .img-box .caption h4{
     text-transform: capitalize;
@@ -577,6 +598,42 @@ margin-bottom: 30px;
     margin: 30px auto;
 
 }
+.portfolio .modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+    top: 0;
+    z-index: 9999;
+    display: none;
+    user-select: none;
+}
+.portfolio .modal img{
+    animation: show 0.5s linear;
+    width: 70%;
+}
+@keyframes show{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.portfolio .modal span{
+    color: rgba(255, 0, 0, 0.912);
+    font-size: 40px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+}
+.portfolio .modal span:hover{
+    color: rgba(255, 0, 0, 0.426);
+}
+
 /*end portfolio*/
 
 /*start video*/
