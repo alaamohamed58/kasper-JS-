@@ -22,7 +22,7 @@ searchButton.onclick = function(){
 //slider
 //get elements
 var slider = Array.from(document.querySelectorAll('.landing img')),
-currentSlide = 1 , 
+currentSlide = 3 , 
 sliderLength = slider.length,
 nextBtn = document.querySelector('.landing #next'),
 preBtn = document.querySelector('.landing #previous');
