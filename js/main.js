@@ -130,8 +130,8 @@ function rmvimg(){
    }
 
 //
-let skillSection = document.querySelector('#about').getBoundingClientRect().top;
-let statsTop = document.querySelector('.stats').getBoundingClientRect().top;
+var skillSection = document.querySelector('#about').getBoundingClientRect().top;
+var statsTop = document.querySelector('.stats').getBoundingClientRect().top;
 
 let about = document.querySelector('.about .container');
 //stats
@@ -180,12 +180,13 @@ let mailsNum = setInterval(function(){
     }
 },10);
 let screenh = window.outerHeight;
+var aboutSectop = document.querySelector('#about').getBoundingClientRect().top;
 
 //scroll up
 let topBtn = document.querySelector('.go-up');
 window.onscroll = function(){
   this.scrollY >= 1000 ? topBtn.classList.add('show'): topBtn.classList.remove('show');
-  const aboutSec = document.querySelector('#about').getBoundingClientRect().top;
+  let aboutSec = document.querySelector('#about').getBoundingClientRect().top;
   if(aboutSec <= screenh){
     about.classList.add('opacity');
 }
@@ -198,7 +199,8 @@ let values = [
     '75%',
     '90%'
 ];
-   if(screenh >= sectionPos + 500){
+   if(window.outerHeight > sectionPos){
+       
        skills.forEach((prog, index) =>{
            prog.style.width = values[index]
        } )
@@ -206,8 +208,9 @@ let values = [
   return false }  ;
 
   //design
-  if(this.scrollY >=  statsTop){
+  if(aboutSectop > window.outerHeight){
     srtinterState = true;
+
 }else{
     srtinterState = false;
 
